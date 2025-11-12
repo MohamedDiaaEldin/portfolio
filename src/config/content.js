@@ -13,7 +13,7 @@ export const personalInfo = {
   email: "mdiaan442@gmail.com",
   linkedin: "https://www.linkedin.com/in/mohamed-diaa-03986b1ab/",
   github: "https://github.com/MohamedDiaaEldin", // Update with your GitHub
-  resumeUrl: "/resume.pdf", // Place your resume.pdf in the public folder
+  resumeUrl: "/mohamed_diaa_resume.pdf", // Place your resume.pdf in the public folder
   availability: "Currently @ Juthor",
   workMode: "Remote Work"
 }
