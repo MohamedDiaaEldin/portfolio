@@ -1,0 +1,60 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+  
+  body {
+    @apply bg-primary text-white font-sans antialiased;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-heading;
+  }
+}
+
+@layer utilities {
+  .text-gradient {
+    @apply bg-gradient-to-r from-white to-accent bg-clip-text text-transparent;
+  }
+
+  .section-padding {
+    @apply py-16 px-6 md:py-24 md:px-12 lg:py-28 lg:px-16;
+  }
+
+  .container-custom {
+    @apply max-w-7xl mx-auto;
+  }
+
+  .card-hover {
+    @apply transition-all duration-300 hover:shadow-glow;
+  }
+
+  .btn-primary {
+    @apply bg-accent text-white px-6 py-2.5 rounded-lg text-sm font-medium 
+           hover:bg-accent-light hover:scale-[1.02] hover:shadow-glow
+           transition-all duration-300 inline-flex items-center justify-center gap-2
+           min-h-[44px] focus:outline-none focus:ring-2 focus:ring-accent focus:ring-offset-2 focus:ring-offset-primary;
+  }
+
+  .btn-secondary {
+    @apply border-2 border-accent text-accent px-6 py-2.5 rounded-lg text-sm font-medium 
+           hover:bg-accent hover:text-white hover:scale-[1.02]
+           transition-all duration-300 inline-flex items-center justify-center gap-2
+           min-h-[44px] focus:outline-none focus:ring-2 focus:ring-accent focus:ring-offset-2 focus:ring-offset-primary;
+  }
+
+  .btn-large {
+    @apply px-8 py-3.5 text-base min-h-[52px];
+  }
+}
+
