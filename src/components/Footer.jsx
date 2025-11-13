@@ -1,5 +1,4 @@
 import { motion } from 'framer-motion'
-import { Heart } from 'lucide-react'
 import { footer } from '../config/content'
 
 const Footer = () => {
@@ -15,7 +14,6 @@ const Footer = () => {
             className="text-text-secondary text-sm flex items-center gap-2"
           >
             {footer.copyright.replace(' ❤️', '')}
-            <Heart size={16} className="text-accent fill-accent" />
           </motion.p>
 
           {/* Links */}

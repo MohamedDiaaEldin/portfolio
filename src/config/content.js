@@ -270,7 +270,7 @@ export const contact = {
 }
 
 export const footer = {
-  copyright: `© ${new Date().getFullYear()} Mohamed Diaa.`,
+  copyright: `© ${new Date().getFullYear()} Mohamed Diaa`,
   links: [
     { name: "LinkedIn", url: personalInfo.linkedin },
     { name: "GitHub", url: personalInfo.github },
