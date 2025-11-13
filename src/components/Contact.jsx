@@ -27,12 +27,12 @@ const Contact = () => {
       label: 'GitHub',
       value: '@MohamedDiaaEldin',
       href: contact.github,
-      color: 'text-slate-light'
+      color: 'text-text-secondary'
     }
   ]
 
   return (
-    <section id="contact" ref={ref} className="section-padding bg-primary-light">
+    <section id="contact" ref={ref} className="section-padding bg-surface-elevated">
       <div className="container-custom">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -40,12 +40,12 @@ const Contact = () => {
           transition={{ duration: 0.6 }}
           className="text-center max-w-3xl mx-auto"
         >
-          <h2 className="text-4xl md:text-5xl font-heading font-bold mb-4">
+          <h2 className="mb-4">
             {contact.title}
           </h2>
           <div className="w-20 h-1 bg-accent mx-auto mb-8"></div>
           
-          <p className="text-slate-light text-base mb-10 leading-relaxed max-w-2xl mx-auto">
+          <p className="text-text-secondary text-body mb-10 max-w-2xl mx-auto">
             {contact.subtitle}
           </p>
 
@@ -54,7 +54,7 @@ const Contact = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12"
+            className="grid grid-cols-1 md:grid-cols-3 gap-lg mb-12"
           >
             {contactMethods.map((method, index) => (
               <motion.a
@@ -64,16 +64,16 @@ const Contact = () => {
                 rel={method.label !== 'Email' ? 'noopener noreferrer' : undefined}
                 whileHover={{ scale: 1.02, y: -3 }}
                 transition={{ duration: 0.2 }}
-                className="bg-primary border border-slate rounded-xl p-6 hover:border-accent hover:shadow-glow transition-all group"
+                className="bg-surface border border-border-divider rounded-xl p-4 sm:p-6 hover:border-accent hover:shadow-glow transition-all group min-h-[180px] sm:min-h-[200px] flex flex-col items-center justify-center"
               >
                 <method.icon
-                  size={40}
-                  className={`${method.color} mb-4 mx-auto group-hover:scale-110 transition-transform`}
+                  size={32}
+                  className={`${method.color} mb-3 sm:mb-4 group-hover:scale-110 transition-transform sm:w-10 sm:h-10`}
                 />
-                <h3 className="text-white font-heading font-semibold mb-2">
+                <h3 className="text-text-primary font-heading font-semibold mb-2 text-center">
                   {method.label}
                 </h3>
-                <p className="text-slate-light text-sm break-all">
+                <p className="text-text-secondary text-xs sm:text-sm break-all text-center px-2">
                   {method.value}
                 </p>
               </motion.a>
@@ -90,7 +90,7 @@ const Contact = () => {
               href={`mailto:${contact.email}`}
               className="btn-primary btn-large inline-flex items-center gap-2"
             >
-              <Send size={18} />
+              <Send size={20} />
               {contact.cta}
             </a>
           </motion.div>
@@ -100,7 +100,7 @@ const Contact = () => {
             initial={{ opacity: 0 }}
             animate={isInView ? { opacity: 1 } : { opacity: 0 }}
             transition={{ duration: 0.6, delay: 0.6 }}
-            className="text-slate-light text-sm mt-8"
+            className="text-text-secondary text-sm mt-8"
           >
             {contact.availability}
           </motion.p>

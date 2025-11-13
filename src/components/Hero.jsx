@@ -12,20 +12,20 @@ const Hero = () => {
   }
 
   return (
-    <section id="hero" className="min-h-screen flex items-center justify-center section-padding pt-32">
+    <section id="hero" className="min-h-[calc(100vh-5rem)] flex items-center justify-center section-padding pt-24 md:pt-28 lg:pt-32">
       <div className="container-custom text-center">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
-          className="space-y-6"
+          className="space-y-6 md:space-y-8 lg:space-y-10"
         >
           {/* Greeting */}
           <motion.p
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.2 }}
-            className="text-accent text-lg md:text-xl font-medium"
+            className="text-accent text-body md:text-body-lg lg:text-body-xl font-medium mb-2"
           >
             {hero.greeting}
           </motion.p>
@@ -35,7 +35,7 @@ const Hero = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.3 }}
-            className="text-4xl md:text-6xl lg:text-hero-mobile xl:text-hero font-heading font-bold"
+            className="break-words"
           >
             <span className="text-gradient bg-gradient-to-r from-white via-accent-light to-accent bg-[length:200%_auto] animate-gradient">
               {hero.headline}
@@ -47,7 +47,7 @@ const Hero = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.4 }}
-            className="text-slate-light text-base md:text-lg max-w-2xl mx-auto leading-relaxed"
+            className="text-text-secondary text-body md:text-body-lg max-w-2xl mx-auto"
           >
             {hero.subheadline}
           </motion.p>
@@ -57,21 +57,21 @@ const Hero = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.5 }}
-            className="flex flex-wrap items-center justify-center gap-6 pt-4 text-slate-light"
+            className="flex flex-wrap items-center justify-center gap-md md:gap-lg pt-6 text-text-secondary"
           >
             <div className="flex items-center gap-2">
-              <MapPin size={18} className="text-accent" />
-              <span>{personalInfo.location}</span>
+              <MapPin size={16} className="text-accent md:w-5 md:h-5" />
+              <span className="text-sm md:text-body">{personalInfo.location}</span>
             </div>
-            <div className="hidden md:block text-slate">•</div>
+            <div className="hidden md:flex items-center text-border-divider">•</div>
             <div className="flex items-center gap-2">
-              <Globe size={18} className="text-accent" />
-              <span>{personalInfo.workMode}</span>
+              <Globe size={16} className="text-accent md:w-5 md:h-5" />
+              <span className="text-sm md:text-body">{personalInfo.workMode}</span>
             </div>
-            <div className="hidden md:block text-slate">•</div>
+            <div className="hidden md:flex items-center text-border-divider">•</div>
             <div className="flex items-center gap-2">
-              <Briefcase size={18} className="text-accent" />
-              <span>{personalInfo.availability}</span>
+              <Briefcase size={16} className="text-accent md:w-5 md:h-5" />
+              <span className="text-sm md:text-body">{personalInfo.availability}</span>
             </div>
           </motion.div>
 
@@ -80,15 +80,15 @@ const Hero = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.6 }}
-            className="flex flex-col sm:flex-row items-center justify-center gap-4 pt-8"
+            className="flex flex-col sm:flex-row items-center justify-center gap-md pt-10"
           >
-            <button onClick={scrollToWork} className="btn-primary btn-large">
+            <button onClick={scrollToWork} className="btn-primary btn-large" aria-label="View my projects">
               {hero.cta.primary}
-              <ChevronDown size={18} />
+              <ChevronDown size={20} />
             </button>
-            <button onClick={scrollToContact} className="btn-secondary btn-large">
+            <button onClick={scrollToContact} className="btn-secondary btn-large" aria-label="Get in touch">
               {hero.cta.secondary}
-              <ArrowRight size={18} />
+              <ArrowRight size={20} />
             </button>
           </motion.div>
         </motion.div>

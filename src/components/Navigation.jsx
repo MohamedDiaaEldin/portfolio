@@ -50,28 +50,28 @@ const Navigation = () => {
       initial={{ y: -100 }}
       animate={{ y: 0 }}
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        isScrolled ? 'bg-primary/95 backdrop-blur-md shadow-lg' : 'bg-transparent'
+        isScrolled ? 'bg-surface/95 backdrop-blur-md shadow-lg' : 'bg-transparent'
       }`}
     >
-      <div className="container-custom px-6 lg:px-20">
-        <div className="flex items-center justify-between h-20">
+      <div className="container-custom">
+        <div className="flex items-center justify-between h-16 md:h-20">
           {/* Logo */}
           <motion.div
             whileHover={{ scale: 1.05 }}
-            className="text-2xl font-heading font-bold cursor-pointer"
+            className="text-xl md:text-2xl font-heading font-bold cursor-pointer"
             onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
           >
             <span className="text-gradient">MD</span>
           </motion.div>
 
           {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center gap-8">
+          <div className="hidden md:flex items-center gap-lg">
             {navItems.map((item) => (
               <button
                 key={item.id}
                 onClick={() => scrollToSection(item.id)}
-                className={`text-sm font-medium transition-colors duration-200 relative ${
-                  activeSection === item.id ? 'text-accent' : 'text-slate-light hover:text-white'
+                className={`text-sm font-medium transition-colors duration-200 relative min-h-[44px] flex items-center ${
+                  activeSection === item.id ? 'text-accent' : 'text-text-secondary hover:text-text-primary'
                 }`}
               >
                 {item.label}
@@ -95,10 +95,11 @@ const Navigation = () => {
 
           {/* Mobile Menu Button */}
           <button
-            className="md:hidden text-white"
+            className="md:hidden text-text-primary min-w-[44px] min-h-[44px] flex items-center justify-center"
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+            aria-label="Toggle menu"
           >
-            {isMobileMenuOpen ? <X size={28} /> : <Menu size={28} />}
+            {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
           </button>
         </div>
       </div>
@@ -110,15 +111,15 @@ const Navigation = () => {
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: 'auto' }}
             exit={{ opacity: 0, height: 0 }}
-            className="md:hidden bg-primary-light border-t border-slate"
+            className="md:hidden bg-surface-elevated border-t border-border-divider"
           >
-            <div className="container-custom px-6 py-6 flex flex-col gap-4">
+            <div className="container-custom py-6 flex flex-col gap-md">
               {navItems.map((item) => (
                 <button
                   key={item.id}
                   onClick={() => scrollToSection(item.id)}
-                  className={`text-left py-2 text-lg font-medium transition-colors ${
-                    activeSection === item.id ? 'text-accent' : 'text-slate-light'
+                  className={`text-left py-3 text-body-lg font-medium transition-colors min-h-[44px] ${
+                    activeSection === item.id ? 'text-accent' : 'text-text-secondary'
                   }`}
                 >
                   {item.label}

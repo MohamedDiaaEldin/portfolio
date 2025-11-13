@@ -28,7 +28,7 @@ const About = () => {
   }
 
   return (
-    <section id="about" ref={ref} className="section-padding bg-primary-light">
+    <section id="about" ref={ref} className="section-padding bg-surface-elevated">
       <div className="container-custom">
         <motion.div
           variants={containerVariants}
@@ -38,7 +38,7 @@ const About = () => {
         >
           {/* Section Title */}
           <motion.div variants={itemVariants} className="text-center">
-            <h2 className="text-4xl md:text-5xl font-heading font-bold mb-4">
+            <h2 className="mb-4">
               {about.title}
             </h2>
             <div className="w-20 h-1 bg-accent mx-auto"></div>
@@ -47,7 +47,7 @@ const About = () => {
           {/* Description */}
           <motion.div variants={itemVariants} className="max-w-3xl mx-auto space-y-5">
             {about.description.map((paragraph, index) => (
-              <p key={index} className="text-slate-light text-base md:text-lg leading-relaxed">
+              <p key={index} className="text-text-secondary text-body md:text-body-lg">
                 {paragraph}
               </p>
             ))}
@@ -56,20 +56,20 @@ const About = () => {
           {/* Highlight Cards */}
           <motion.div
             variants={containerVariants}
-            className="grid grid-cols-1 md:grid-cols-3 gap-5 mt-10"
+            className="grid grid-cols-1 md:grid-cols-3 gap-md mt-10"
           >
             {about.highlights.map((highlight, index) => (
               <motion.div
                 key={index}
                 variants={itemVariants}
                 whileHover={{ scale: 1.02, y: -4 }}
-                className="bg-primary border border-slate rounded-xl p-6 text-center card-hover"
+                className="bg-surface border border-border-divider rounded-xl p-6 text-center card-hover"
               >
                 <div className="text-4xl mb-3">{highlight.icon}</div>
-                <h3 className="text-lg font-heading font-semibold mb-2 text-white">
+                <h3 className="text-h3 mb-2 text-text-primary">
                   {highlight.title}
                 </h3>
-                <p className="text-slate-light text-sm">{highlight.description}</p>
+                <p className="text-text-secondary text-sm">{highlight.description}</p>
               </motion.div>
             ))}
           </motion.div>
@@ -81,7 +81,7 @@ const About = () => {
               download
               className="btn-primary btn-large inline-flex items-center gap-2"
             >
-              <Download size={18} />
+              <Download size={20} />
               Download Full Resume
             </a>
           </motion.div>

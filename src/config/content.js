@@ -7,7 +7,7 @@
 export const personalInfo = {
   name: "Mohamed Diaa",
   title: "Software Engineer – Full-Stack Development",
-  tagline: "Building Scalable Web Solutions That Drive Real Impact",
+  tagline: "Backend Engineer | Developing High-Performance, Scalable Web Systems",
   description: "Full-Stack Software Engineer specializing in microservices, high-performance systems, and seamless integrations.",
   location: "Cairo, Egypt",
   email: "mdiaan442@gmail.com",
@@ -20,7 +20,7 @@ export const personalInfo = {
 
 export const hero = {
   greeting: "👋 Hey, I'm Mohamed Diaa",
-  headline: "Building Scalable Web Solutions That Drive Real Impact",
+  headline: "Backend Engineer | Developing High-Performance, Scalable Web Systems",
   subheadline: "Full-Stack Software Engineer specializing in microservices, high-performance systems, and seamless integrations.",
   cta: {
     primary: "View My Work",
@@ -31,11 +31,15 @@ export const hero = {
 export const about = {
   title: "About Me",
   description: [
-    "I'm a full-stack software engineer with a passion for building systems that scale. Over the past ~3 years, I've worked across diverse domains—from automotive cybersecurity at Vultara to retail microservices at Juthor.",
+    "I'm a Full-Stack Software Engineer with nearly three years of experience building and support web applications systems across multiple domains — from automotive cybersecurity at Vultara to retail microservices at Juthor.",
     
-    "I'm skilled in both frontend and backend development using JavaScript, TypeScript, and Python, with strong experience in NestJS, Next.js, React, and Node.js. I'm comfortable working with different system architectures and databases like PostgreSQL and MongoDB.",
+    "I'm passionate about creating systems that scale efficiently and deliver real impact. My work spans both frontend and backend development using JavaScript, TypeScript, and Python, with strong expertise in frameworks like NestJS, Next.js, React, and Node.js. I enjoy designing modular architectures, improving performance, and integrating complex systems to create seamless, reliable experiences.",
     
-    "My approach focuses on understanding problems deeply, designing with scalability in mind, and delivering reliable solutions. I'm experienced in integrating external systems, improving performance, and participating in system design discussions. Known for adaptability, problem-solving, and delivering reliable solutions in collaborative environments."
+    "At Juthor, I develop microservices-based solutions that enhance scalability, performance, and inter-service communication, leveraging technologies like Redis, PostgreSQL, and Next.js. Before that, at Vultara, I contributed to the development of cybersecurity platforms — optimizing system performance by up to 90% and ensuring reliability in a highly regulated domain.",
+    
+    "I've also worked as a freelance full-stack developer, building custom web applications and integrating them with AI and deep learning models. This experience strengthened my adaptability, communication, and ability to translate complex requirements into clean, maintainable code.",
+    
+    "I thrive on solving tough problems, collaborating with teams, and designing systems that scale. I'm always eager to learn, refine, and build technology that makes a difference."
   ],
   highlights: [
     {
@@ -138,7 +142,7 @@ export const experiences = [
 export const projects = [
   {
     id: 1,
-    title: "Scalable Retail Platform",
+    title: "Relation and Order Management Platform",
     description: "Designed and developed microservices-based architecture with Redis queue systems, reverse proxy configuration, and webhook-driven synchronization for retail platforms.",
     impact: "Optimized for speed, reliability, and ease of deployment",
     tech: ["NestJS", "Next.js", "PostgreSQL", "Redis", "Docker", "Microservices"],
@@ -148,7 +152,7 @@ export const projects = [
   },
   {
     id: 2,
-    title: "Automotive Security Suite",
+    title: "Vultara Automotive Cybersecurity Platform",
     description: "Built cybersecurity algorithms, dashboards, and third-party integrations for automotive cybersecurity platforms with real-time threat monitoring and vulnerability tracking.",
     impact: "Improved system performance by up to 90% via optimization and refactoring",
     tech: ["TypeScript", "React", "Node.js", "CI/CD", "Testing"],
@@ -158,9 +162,9 @@ export const projects = [
   },
   {
     id: 3,
-    title: "University ERP System",
-    description: "Designed and implemented backend infrastructure for an ERP system used in many universities in Egypt using Python and PostgreSQL, ensuring data consistency, scalability, and performance.",
-    impact: "Supporting multiple universities with scalable architecture",
+    title: "ERP System",
+    description: "Designed and implemented backend infrastructure including database and server environment setup using Docker and automation scripts for an ERP system using Python and PostgreSQL, ensuring data consistency, scalability, and performance.",
+    impact: "Supporting multiple institutions with scalable architecture",
     tech: ["Python", "Flask", "PostgreSQL", "REST APIs"],
     link: null,
     category: "Backend Development",
@@ -168,9 +172,9 @@ export const projects = [
   },
   {
     id: 4,
-    title: "Deep Learning Integration",
-    description: "Seamlessly integrated a deep learning model into a production-level project.",
-    impact: "Successfully deployed in production environment",
+    title: "AI Integration",
+    description: "Seamlessly integrated a deep learning model into a project.",
+    impact: "Successfully deployed",
     tech: ["Python", "Deep Learning", "Flask"],
     link: null,
     category: "Machine Learning",
@@ -266,7 +270,7 @@ export const contact = {
 }
 
 export const footer = {
-  copyright: `© ${new Date().getFullYear()} Mohamed Diaa. Built with React & ❤️`,
+  copyright: `© ${new Date().getFullYear()} Mohamed Diaa.`,
   links: [
     { name: "LinkedIn", url: personalInfo.linkedin },
     { name: "GitHub", url: personalInfo.github },

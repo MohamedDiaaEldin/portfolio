@@ -10,7 +10,7 @@
   }
   
   body {
-    @apply bg-primary text-white font-sans antialiased;
+    @apply bg-surface text-text-primary font-sans antialiased;
   }
 
   html {
@@ -20,6 +20,22 @@
   h1, h2, h3, h4, h5, h6 {
     @apply font-heading;
   }
+
+  h1 {
+    @apply text-h1 md:text-h1-md lg:text-h1-lg xl:text-h1-xl font-bold;
+  }
+
+  h2 {
+    @apply text-h2 md:text-h2-md lg:text-h2-lg font-bold;
+  }
+
+  h3 {
+    @apply text-h3 md:text-h3-md lg:text-h3-lg font-semibold;
+  }
+
+  p {
+    @apply text-body leading-relaxed;
+  }
 }
 
 @layer utilities {
@@ -28,11 +44,11 @@
   }
 
   .section-padding {
-    @apply py-16 px-6 md:py-24 md:px-12 lg:py-28 lg:px-16;
+    @apply py-12 md:py-16 lg:py-24;
   }
 
   .container-custom {
-    @apply max-w-7xl mx-auto;
+    @apply max-w-7xl mx-auto px-5 md:px-10 lg:px-20;
   }
 
   .card-hover {
@@ -43,18 +59,60 @@
     @apply bg-accent text-white px-6 py-2.5 rounded-lg text-sm font-medium 
            hover:bg-accent-light hover:scale-[1.02] hover:shadow-glow
            transition-all duration-300 inline-flex items-center justify-center gap-2
-           min-h-[44px] focus:outline-none focus:ring-2 focus:ring-accent focus:ring-offset-2 focus:ring-offset-primary;
+           min-h-[44px] min-w-[44px] focus:outline-none focus:ring-2 focus:ring-accent focus:ring-offset-2 focus:ring-offset-surface;
   }
 
   .btn-secondary {
     @apply border-2 border-accent text-accent px-6 py-2.5 rounded-lg text-sm font-medium 
            hover:bg-accent hover:text-white hover:scale-[1.02]
            transition-all duration-300 inline-flex items-center justify-center gap-2
-           min-h-[44px] focus:outline-none focus:ring-2 focus:ring-accent focus:ring-offset-2 focus:ring-offset-primary;
+           min-h-[44px] min-w-[44px] focus:outline-none focus:ring-2 focus:ring-accent focus:ring-offset-2 focus:ring-offset-surface;
   }
 
   .btn-large {
     @apply px-8 py-3.5 text-base min-h-[52px];
+  }
+
+  /* Icon size utilities */
+  .icon-sm {
+    @apply w-4 h-4;
+  }
+
+  .icon-md {
+    @apply w-5 h-5;
+  }
+
+  .icon-lg {
+    @apply w-6 h-6;
+  }
+
+  .icon-xl {
+    @apply w-8 h-8;
+  }
+
+  /* Spacing utilities */
+  .gap-sm {
+    @apply gap-2;
+  }
+
+  .gap-md {
+    @apply gap-4;
+  }
+
+  .gap-lg {
+    @apply gap-6;
+  }
+
+  /* Reduced motion support */
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
   }
 }
 

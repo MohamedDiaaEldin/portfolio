@@ -5,12 +5,12 @@ import { skills } from '../config/content'
 const Skills = () => {
   const ref = useRef(null)
   const isInView = useInView(ref, { once: true, margin: "-100px" })
-  const [activeCategory, setActiveCategory] = useState(skills.categories[0].id)
+  const [activeCategory, setActiveCategory] = useState("backend")
 
   const activeSkills = skills.categories.find(cat => cat.id === activeCategory)?.skills || []
 
   return (
-    <section id="skills" ref={ref} className="section-padding bg-primary">
+    <section id="skills" ref={ref} className="section-padding bg-surface">
       <div className="container-custom">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -18,7 +18,7 @@ const Skills = () => {
           transition={{ duration: 0.6 }}
           className="text-center mb-12"
         >
-          <h2 className="text-4xl md:text-5xl font-heading font-bold mb-4">
+          <h2 className="mb-4">
             Technical Skills
           </h2>
           <div className="w-20 h-1 bg-accent mx-auto"></div>
@@ -29,17 +29,19 @@ const Skills = () => {
           initial={{ opacity: 0, y: 20 }}
           animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
           transition={{ duration: 0.6, delay: 0.2 }}
-          className="flex flex-wrap justify-center gap-3 mb-10"
+          className="flex flex-wrap justify-center gap-md mb-10"
         >
           {skills.categories.map((category) => (
             <button
               key={category.id}
               onClick={() => setActiveCategory(category.id)}
-              className={`px-5 py-2.5 rounded-lg text-sm font-medium transition-all duration-300 ${
+              className={`px-5 py-2.5 rounded-lg text-sm font-medium transition-all duration-300 min-h-[44px] ${
                 activeCategory === category.id
                   ? 'bg-accent text-white shadow-glow'
-                  : 'bg-primary-light border border-slate text-slate-light hover:border-accent hover:text-accent'
+                  : 'bg-surface-elevated border border-border-divider text-text-secondary hover:border-accent hover:text-accent'
               }`}
+              aria-pressed={activeCategory === category.id}
+              aria-label={`Show ${category.name} skills`}
             >
               {category.name}
             </button>
@@ -54,12 +56,12 @@ const Skills = () => {
           transition={{ duration: 0.4 }}
           className="max-w-5xl mx-auto"
         >
-          <div className="bg-primary-light border border-slate rounded-2xl p-8 md:p-10">
+          <div className="bg-surface-elevated border border-border-divider rounded-2xl p-4 sm:p-6 md:p-8 lg:p-10">
             <motion.div
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ duration: 0.4, delay: 0.2 }}
-              className="flex flex-wrap gap-3 justify-center"
+              className="flex flex-wrap gap-sm md:gap-md justify-center"
             >
               {activeSkills.map((skill, index) => (
                 <motion.span
@@ -68,9 +70,9 @@ const Skills = () => {
                   animate={{ opacity: 1, scale: 1 }}
                   transition={{ duration: 0.3, delay: index * 0.03 }}
                   whileHover={{ scale: 1.05, y: -2 }}
-                  className="bg-primary border border-slate px-4 py-2.5 rounded-lg text-sm text-white font-medium 
+                  className="bg-surface border border-border-divider px-3 sm:px-4 py-2 sm:py-2.5 rounded-lg text-xs sm:text-sm text-text-primary font-medium 
                              hover:border-accent hover:text-accent hover:shadow-glow 
-                             transition-all duration-300 cursor-default"
+                             transition-all duration-300 cursor-default break-words"
                 >
                   {skill.name}
                 </motion.span>
