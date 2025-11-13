@@ -142,7 +142,7 @@ export const experiences = [
 export const projects = [
   {
     id: 1,
-    title: "Relation and Order Management Platform",
+    title: "Retail and Order Management Platform",
     description: "Designed and developed microservices-based architecture with Redis queue systems, reverse proxy configuration, and webhook-driven synchronization for retail platforms.",
     impact: "Optimized for speed, reliability, and ease of deployment",
     tech: ["NestJS", "Next.js", "PostgreSQL", "Redis", "Docker", "Microservices"],

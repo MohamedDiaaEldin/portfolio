@@ -665,3 +665,4 @@ projects: [
 *This document serves as the single source of truth for the portfolio website. All design decisions, content structure, and technical requirements are defined here.*
 
 
+
