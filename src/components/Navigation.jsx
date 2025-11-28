@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useMemo } from 'react'
 import { Menu, X, Download } from 'lucide-react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { personalInfo } from '../config/content'
@@ -8,13 +8,13 @@ const Navigation = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
   const [activeSection, setActiveSection] = useState('hero')
 
-  const navItems = [
+  const navItems = useMemo(() => [
     { id: 'about', label: 'About' },
     { id: 'experience', label: 'Experience' },
     { id: 'projects', label: 'Projects' },
     { id: 'skills', label: 'Skills' },
     { id: 'contact', label: 'Contact' }
-  ]
+  ], [])
 
   useEffect(() => {
     const handleScroll = () => {
@@ -35,14 +35,27 @@ const Navigation = () => {
 
     window.addEventListener('scroll', handleScroll)
     return () => window.removeEventListener('scroll', handleScroll)
-  }, [])
+  }, [navItems])
 
   const scrollToSection = (id) => {
-    const element = document.getElementById(id)
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' })
-      setIsMobileMenuOpen(false)
-    }
+    // Close mobile menu first
+    setIsMobileMenuOpen(false)
+    
+    // Use setTimeout to ensure menu closes before scrolling
+    setTimeout(() => {
+      const element = document.getElementById(id)
+      if (element) {
+        // Account for fixed header height
+        const headerOffset = 80
+        const elementPosition = element.getBoundingClientRect().top
+        const offsetPosition = elementPosition + window.pageYOffset - headerOffset
+
+        window.scrollTo({
+          top: offsetPosition,
+          behavior: 'smooth'
+        })
+      }
+    }, 100)
   }
 
   return (
@@ -111,16 +124,23 @@ const Navigation = () => {
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: 'auto' }}
             exit={{ opacity: 0, height: 0 }}
-            className="md:hidden bg-surface-elevated border-t border-border-divider"
+            transition={{ duration: 0.2 }}
+            className="md:hidden bg-surface-elevated border-t border-border-divider overflow-hidden"
+            style={{ pointerEvents: 'auto' }}
           >
             <div className="container-custom py-6 flex flex-col gap-md">
               {navItems.map((item) => (
                 <button
                   key={item.id}
-                  onClick={() => scrollToSection(item.id)}
-                  className={`text-left py-3 text-body-lg font-medium transition-colors min-h-[44px] ${
+                  onClick={(e) => {
+                    e.preventDefault()
+                    e.stopPropagation()
+                    scrollToSection(item.id)
+                  }}
+                  className={`text-left py-3 text-body-lg font-medium transition-colors min-h-[44px] w-full ${
                     activeSection === item.id ? 'text-accent' : 'text-text-secondary'
                   }`}
+                  type="button"
                 >
                   {item.label}
                 </button>
@@ -129,6 +149,7 @@ const Navigation = () => {
                 href={personalInfo.resumeUrl}
                 download
                 className="btn-primary flex items-center justify-center gap-2 mt-4"
+                onClick={() => setIsMobileMenuOpen(false)}
               >
                 <Download size={16} />
                 Download Resume

@@ -20,8 +20,8 @@ export const personalInfo = {
 
 export const hero = {
   greeting: "👋 Hey, I'm Mohamed Diaa",
-  headline: "Backend Engineer | Developing High-Performance, Scalable Web Systems",
-  subheadline: "Full-Stack Software Engineer specializing in microservices, high-performance systems, and seamless integrations.",
+  headline: "Software Engineer | Developing High-Performance, Scalable Web Systems",
+  subheadline: "Full-Stack Software Engineer specializing in backend development, high-performance systems, and seamless integrations.",
   cta: {
     primary: "View My Work",
     secondary: "Let's Connect"

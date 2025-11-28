@@ -56,7 +56,7 @@ const Contact = () => {
             transition={{ duration: 0.6, delay: 0.2 }}
             className="grid grid-cols-1 md:grid-cols-3 gap-lg mb-12"
           >
-            {contactMethods.map((method, index) => (
+            {contactMethods.map((method) => (
               <motion.a
                 key={method.label}
                 href={method.href}
