@@ -18,11 +18,16 @@ const ProjectCard = ({ project, index }) => {
       onMouseLeave={() => setIsHovered(false)}
       className="bg-surface-elevated border border-border-divider rounded-xl overflow-hidden card-hover h-full flex flex-col"
     >
-      {/* Category Badge */}
-      <div className="p-4 sm:p-6 pb-0">
+      {/* Category and Company Badges */}
+      <div className="p-4 sm:p-6 pb-0 flex flex-wrap gap-2">
         <span className="inline-block bg-accent/10 text-accent px-3 py-1 rounded-full text-xs font-medium">
           {project.category}
         </span>
+        {project.company && (
+          <span className="inline-block bg-surface border border-border-divider text-text-primary px-3 py-1 rounded-full text-xs font-medium">
+            {project.company}
+          </span>
+        )}
       </div>
 
       <div className="p-4 sm:p-6 flex-1 flex flex-col">

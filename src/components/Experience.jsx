@@ -1,12 +1,18 @@
 import { motion, useInView } from 'framer-motion'
 import { useRef, useState } from 'react'
-import { MapPin, Calendar, ChevronDown, ChevronUp } from 'lucide-react'
+import { MapPin, Calendar, ChevronDown, ChevronUp, ExternalLink } from 'lucide-react'
 import { experiences } from '../config/content'
+import { calculateDuration } from '../utils/dateUtils'
 
 const ExperienceCard = ({ experience, index }) => {
   const [isExpanded, setIsExpanded] = useState(index === 0) // First item expanded by default
   const ref = useRef(null)
   const isInView = useInView(ref, { once: true, margin: "-50px" })
+  
+  // Calculate dynamic duration for current companies
+  const displayDuration = experience.current && experience.startDate
+    ? calculateDuration(experience.startDate) || experience.durationShort
+    : experience.durationShort
 
   return (
     <motion.div
@@ -32,9 +38,24 @@ const ExperienceCard = ({ experience, index }) => {
       >
         <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-md mb-4">
           <div className="flex-1 min-w-0">
-            <h3 className="text-h3 text-text-primary mb-2 break-words">
-              {experience.company}
-            </h3>
+            {experience.companyUrl ? (
+              <a
+                href={experience.companyUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group inline-flex items-center gap-2 mb-2"
+              >
+                <h3 className="text-h3 text-text-primary break-words group-hover:text-accent transition-colors relative">
+                  {experience.company}
+                  <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-accent group-hover:w-full transition-all duration-300"></span>
+                </h3>
+                <ExternalLink size={16} className="text-text-secondary group-hover:text-accent transition-colors flex-shrink-0" />
+              </a>
+            ) : (
+              <h3 className="text-h3 text-text-primary mb-2 break-words">
+                {experience.company}
+              </h3>
+            )}
             <p className="text-accent text-body-lg font-medium mb-2 break-words">
               {experience.role}
             </p>
@@ -44,7 +65,7 @@ const ExperienceCard = ({ experience, index }) => {
                 <span className="truncate">{experience.duration}</span>
               </span>
               <span className="hidden sm:inline text-border-divider">•</span>
-              <span className="whitespace-nowrap">{experience.durationShort}</span>
+              <span className="whitespace-nowrap">{displayDuration}</span>
               <span className="hidden sm:inline text-border-divider">•</span>
               <span className="flex items-center gap-1 whitespace-nowrap">
                 <MapPin size={14} className="flex-shrink-0" />

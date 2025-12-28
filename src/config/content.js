@@ -64,12 +64,14 @@ export const experiences = [
   {
     id: 1,
     company: "Juthor | جذور",
+    companyUrl: "https://juthor.sa/",
     role: "Software Engineer",
     type: "Full-time",
     location: "Saudi Arabia",
     workMode: "Remote",
     duration: "Jul 2025 - Present",
     durationShort: "5 months",
+    startDate: "2025-07-01", // For dynamic duration calculation
     current: true,
     logo: null, // Add logo URL if available
     achievements: [
@@ -85,6 +87,7 @@ export const experiences = [
   {
     id: 2,
     company: "Vultara, Inc.",
+    companyUrl: "https://vultara.com/",
     role: "Software Engineer",
     type: "Full-time",
     location: "United States",
@@ -143,7 +146,8 @@ export const projects = [
   {
     id: 1,
     title: "Retail and Order Management Platform",
-    description: "Designed and developed microservices-based architecture with Redis queue systems, reverse proxy configuration, and webhook-driven synchronization for retail platforms.",
+    company: "Juthor",
+    description: "Built an AI-enhanced e-commerce management system that centralizes product information and order processing across multiple retail platforms. The microservices architecture, powered by Redis queues and reverse proxy configuration, enables seamless multi-channel selling with automated product enrichment, real-time inventory synchronization, and intelligent order routing—significantly reducing operational overhead.",
     impact: "Optimized for speed, reliability, and ease of deployment",
     tech: ["NestJS", "Next.js", "PostgreSQL", "Redis", "Docker", "Microservices"],
     link: null, // Add project link if available
@@ -153,7 +157,8 @@ export const projects = [
   {
     id: 2,
     title: "Vultara Automotive Cybersecurity Platform",
-    description: "Built cybersecurity algorithms, dashboards, and third-party integrations for automotive cybersecurity platforms with real-time threat monitoring and vulnerability tracking.",
+    company: "Vultara",
+    description: "Developed an automotive cybersecurity risk management platform featuring TARA automation, vulnerability tracking, and threat intelligence dashboards. The system ensures compliance with ISO/SAE 21434 and UNECE WP.29 standards while delivering 90% performance improvements through optimized algorithms and scalable architecture for automotive security workflows.",
     impact: "Improved system performance by up to 90% via optimization and refactoring",
     tech: ["TypeScript", "React", "Node.js", "CI/CD", "Testing"],
     link: null,
