@@ -1,29 +1,16 @@
 /**
  * Migration: Update property_names unique constraint
  * 
- * This migration:
- * 1. Loops over all tenants
- * 2. Drops the unique constraint on property_names.name
- * 3. Creates a new composite unique constraint on (name, category_id)
- * 
- * Date: 2024-12-01
+ * This migration loops over all tenants and:
+ * 1. Drops the unique constraint on property_names.name
+ * 2. Creates a new composite unique constraint on (name, category_id)
  */
 
 import pg from 'pg';
 import { fileURLToPath } from 'url';
-import { argv } from 'process';
 
 const { Pool } = pg;
 
-/**
- * Get database connection pool
- * Assumes environment variables are set:
- * - DB_HOST
- * - DB_PORT
- * - DB_NAME
- * - DB_USER
- * - DB_PASSWORD
- */
 function getDbPool() {
   return new Pool({
     host: process.env.DB_HOST || 'localhost',
@@ -34,21 +21,13 @@ function getDbPool() {
   });
 }
 
-/**
- * Get all tenants from the database
- */
 async function getAllTenants(pool) {
   const query = 'SELECT id, schema_name FROM tenants WHERE active = true ORDER BY id';
   const result = await pool.query(query);
   return result.rows;
 }
 
-/**
- * Drop the old unique constraint on property_names.name
- * Finds and drops any unique constraint that only involves the 'name' column
- */
 async function dropOldConstraint(pool, tenantSchema) {
-  // Find all unique constraints on property_names table
   const findConstraintsQuery = `
     SELECT 
       tc.constraint_name,
@@ -68,15 +47,12 @@ async function dropOldConstraint(pool, tenantSchema) {
   const constraintResult = await pool.query(findConstraintsQuery, [tenantSchema]);
   
   if (constraintResult.rows.length > 0) {
-    // Drop all unique constraints that only involve the 'name' column
     for (const constraint of constraintResult.rows) {
       const dropQuery = `ALTER TABLE ${tenantSchema}.property_names DROP CONSTRAINT IF EXISTS ${constraint.constraint_name};`;
       await pool.query(dropQuery);
       console.log(`  ✓ Dropped constraint: ${constraint.constraint_name}`);
     }
-    return constraintResult.rows.map(r => r.constraint_name);
   } else {
-    // Try common default names as fallback
     const defaultNames = [
       'property_names_name_unique',
       'property_names_name_key',
@@ -89,17 +65,12 @@ async function dropOldConstraint(pool, tenantSchema) {
       await pool.query(dropQuery);
     }
     console.log(`  ✓ Attempted to drop constraints with default names`);
-    return defaultNames;
   }
 }
 
-/**
- * Create new composite unique constraint on (name, category_id)
- */
 async function createNewConstraint(pool, tenantSchema) {
   const constraintName = 'property_names_name_category_id_unique';
   
-  // Check if constraint already exists
   const checkConstraintQuery = `
     SELECT constraint_name
     FROM information_schema.table_constraints
@@ -125,16 +96,12 @@ async function createNewConstraint(pool, tenantSchema) {
   console.log(`  ✓ Created constraint: ${constraintName}`);
 }
 
-/**
- * Process migration for a single tenant
- */
 async function migrateTenant(pool, tenant) {
   const tenantSchema = tenant.schema_name || `tenant_${tenant.id}`;
   
   console.log(`\nProcessing tenant: ${tenant.id} (schema: ${tenantSchema})`);
   
   try {
-    // Check if property_names table exists
     const tableCheckQuery = `
       SELECT EXISTS (
         SELECT FROM information_schema.tables 
@@ -150,7 +117,6 @@ async function migrateTenant(pool, tenant) {
       return;
     }
     
-    // Check if category_id column exists
     const columnCheckQuery = `
       SELECT EXISTS (
         SELECT FROM information_schema.columns 
@@ -167,10 +133,7 @@ async function migrateTenant(pool, tenant) {
       return;
     }
     
-    // Drop old constraint
     await dropOldConstraint(pool, tenantSchema);
-    
-    // Create new constraint
     await createNewConstraint(pool, tenantSchema);
     
     console.log(`  ✓ Successfully migrated tenant ${tenant.id}`);
@@ -181,17 +144,13 @@ async function migrateTenant(pool, tenant) {
   }
 }
 
-/**
- * Main migration function
- */
 async function runMigration() {
   const pool = getDbPool();
   
   try {
     console.log('Starting migration: Update property_names unique constraint');
-    console.log('=' .repeat(60));
+    console.log('='.repeat(60));
     
-    // Get all tenants
     const tenants = await getAllTenants(pool);
     console.log(`Found ${tenants.length} active tenant(s)`);
     
@@ -200,7 +159,6 @@ async function runMigration() {
       return;
     }
     
-    // Process each tenant
     for (const tenant of tenants) {
       await migrateTenant(pool, tenant);
     }
@@ -216,8 +174,6 @@ async function runMigration() {
   }
 }
 
-// Run migration if executed directly
-// Check if this is the main module by comparing the file URL with the executed script
 const isMainModule = process.argv[1] && fileURLToPath(import.meta.url) === process.argv[1];
 
 if (isMainModule) {
@@ -232,4 +188,4 @@ if (isMainModule) {
     });
 }
 
-export { runMigration, migrateTenant, dropOldConstraint, createNewConstraint };
+export { runMigration };
