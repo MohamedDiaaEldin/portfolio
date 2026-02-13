@@ -2,8 +2,13 @@ import { motion, useInView } from 'framer-motion'
 import { useRef, useState } from 'react'
 import { MapPin, Calendar, ChevronDown, ChevronUp } from 'lucide-react'
 import { experiences } from '../config/content'
+import { formatDuration } from '../utils/duration'
 
 const ExperienceCard = ({ experience, index }) => {
+  const durationLabel =
+    experience.current && experience.startDate
+      ? formatDuration(experience.startDate) ?? experience.durationShort
+      : experience.durationShort
   const [isExpanded, setIsExpanded] = useState(index === 0) // First item expanded by default
   const ref = useRef(null)
   const isInView = useInView(ref, { once: true, margin: "-50px" })
@@ -44,7 +49,7 @@ const ExperienceCard = ({ experience, index }) => {
                 <span className="truncate">{experience.duration}</span>
               </span>
               <span className="hidden sm:inline text-border-divider">•</span>
-              <span className="whitespace-nowrap">{experience.durationShort}</span>
+              <span className="whitespace-nowrap">{durationLabel}</span>
               <span className="hidden sm:inline text-border-divider">•</span>
               <span className="flex items-center gap-1 whitespace-nowrap">
                 <MapPin size={14} className="flex-shrink-0" />

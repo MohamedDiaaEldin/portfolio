@@ -69,7 +69,8 @@ export const experiences = [
     location: "Saudi Arabia",
     workMode: "Remote",
     duration: "Jul 2025 - Present",
-    durationShort: "5 months",
+    durationShort: "5 months", // fallback if calculation fails
+    startDate: "2025-07", // YYYY-MM for dynamic duration calculation
     current: true,
     logo: null, // Add logo URL if available
     achievements: [
