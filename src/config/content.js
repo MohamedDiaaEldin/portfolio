@@ -7,8 +7,8 @@
 export const personalInfo = {
   name: "Mohamed Diaa",
   title: "Software Engineer – Full-Stack Development",
-  tagline: "Backend Engineer | Developing High-Performance, Scalable Web Systems",
-  description: "Full-Stack Software Engineer specializing in microservices, high-performance systems, and seamless integrations.",
+  tagline: "Building scalable web applications capable of handling millions of data points | Optimizing performance, reducing costs, integrating complex retail ecosystems",
+  description: "Full-Stack Software Engineer specializing in microservices, high-performance systems, and seamless integrations. Experienced in building scalable web applications capable of handling millions of data points effectively. Proven track record in optimizing system performance, reducing operational costs, and integrating complex retail ecosystems.",
   location: "Cairo, Egypt",
   email: "mdiaan442@gmail.com",
   linkedin: "https://www.linkedin.com/in/mohamed-diaa-03986b1ab/",
@@ -20,8 +20,8 @@ export const personalInfo = {
 
 export const hero = {
   greeting: "👋 Hey, I'm Mohamed Diaa",
-  headline: "Software Engineer | Developing High-Performance, Scalable Web Systems",
-  subheadline: "Full-Stack Software Engineer specializing in backend development, high-performance systems, and seamless integrations.",
+  headline: "Software Engineer | Building Scalable Systems That Handle Millions of Data Points",
+  subheadline: "Full-Stack Developer skilled in optimizing performance (up to 90% improvements), reducing operational costs, and integrating complex retail ecosystems. Experienced in JavaScript, TypeScript, and Python.",
   cta: {
     primary: "View My Work",
     secondary: "Let's Connect"
@@ -31,11 +31,11 @@ export const hero = {
 export const about = {
   title: "About Me",
   description: [
-    "I'm a Full-Stack Software Engineer with nearly three years of experience building and support web applications systems across multiple domains — from automotive cybersecurity at Vultara to retail microservices at Juthor.",
+    "I'm a Full-Stack Software Engineer with nearly three years of experience building and supporting web application systems across multiple domains — from automotive cybersecurity at Vultara to retail microservices at Juthor.",
     
-    "I'm passionate about creating systems that scale efficiently and deliver real impact. My work spans both frontend and backend development using JavaScript, TypeScript, and Python, with strong expertise in frameworks like NestJS, Next.js, React, and Node.js. I enjoy designing modular architectures, improving performance, and integrating complex systems to create seamless, reliable experiences.",
+    "I'm passionate about creating systems that scale efficiently and deliver real impact. My work spans both frontend and backend development using JavaScript, TypeScript, and Python, with strong expertise in frameworks like NestJS, Next.js, React, and Node.js. I enjoy designing modular architectures, improving performance, reducing operational costs, and integrating complex retail ecosystems to create seamless, reliable experiences. I've built solutions capable of handling millions of data points effectively.",
     
-    "At Juthor, I develop microservices-based solutions that enhance scalability, performance, and inter-service communication, leveraging technologies like Redis, PostgreSQL, and Next.js. Before that, at Vultara, I contributed to the development of cybersecurity platforms — optimizing system performance by up to 90% and ensuring reliability in a highly regulated domain.",
+    "At Juthor, I develop microservices-based solutions that enhance scalability, performance, and inter-service communication, leveraging technologies like Redis, PostgreSQL, and Next.js. I've engineered integrations with major retail channels like Trendyol and Chefz. Before that, at Vultara, I contributed to the development of cybersecurity platforms — optimizing system performance by up to 90% and ensuring reliability in a highly regulated domain.",
     
     "I've also worked as a freelance full-stack developer, building custom web applications and integrating them with AI and deep learning models. This experience strengthened my adaptability, communication, and ability to translate complex requirements into clean, maintainable code.",
     
@@ -45,12 +45,12 @@ export const about = {
     {
       icon: "🚀",
       title: "Performance",
-      description: "90% faster systems"
+      description: "Up to 90% faster systems"
     },
     {
       icon: "🏗️",
       title: "Architecture",
-      description: "Microservices architecture"
+      description: "Microservices & retail integrations"
     },
     {
       icon: "🤝",
@@ -73,12 +73,12 @@ export const experiences = [
     current: true,
     logo: null, // Add logo URL if available
     achievements: [
-      "Designed and developed microservices-based architecture, ensuring modularity, scalability, and efficient inter-service communication",
-      "Implemented queue systems using Redis to manage asynchronous tasks, enhance performance, and improve system reliability",
-      "Built and maintained integrations with external systems and services, including retail platforms and webhook-driven synchronization",
-      "Collaborated with cross-functional teams and participated in system design meetings to ensure scalable architecture and domain compliance",
-      "Delivered high-performance, maintainable solutions using NestJS, Next.js, and PostgreSQL, optimizing for speed, reliability, and ease of deployment",
-      "Configured and implemented a reverse proxy setup to optimize request routing, security, and load management across services"
+      "Engineered and maintained integrations with major retail channels (Trendyol, Chefz), ensuring synchronized data flow",
+      "Influenced critical system design decisions by applying resilience patterns and advanced queuing strategies to ensure high availability",
+      "Developed and implemented a tailored DEV workflow process based on the company's culture and operational state to improve team velocity",
+      "Designed and maintained microservices-based architecture using NestJS, Next.js, and PostgreSQL to ensure modularity and efficient inter-service communication",
+      "Implemented Redis-based queue systems to optimize request routing and load management",
+      "Optimized end-to-end workflows, including code performance improvements and database query enhancements, resulting in up to 84% increase in overall system performance"
     ],
     techStack: ["NestJS", "Next.js", "PostgreSQL", "Redis", "Microservices", "Docker"]
   },
@@ -143,8 +143,8 @@ export const projects = [
   {
     id: 1,
     title: "Retail and Order Management Platform",
-    description: "Designed and developed microservices-based architecture with Redis queue systems, reverse proxy configuration, and webhook-driven synchronization for retail platforms.",
-    impact: "Optimized for speed, reliability, and ease of deployment",
+    description: "Designed and maintained microservices-based architecture with integrations for major retail channels (Trendyol, Chefz). Implemented Redis-based queue systems, resilience patterns, and a tailored DEV workflow to improve team velocity.",
+    impact: "Achieved up to 84% increase in overall system performance through code and database optimizations",
     tech: ["NestJS", "Next.js", "PostgreSQL", "Redis", "Docker", "Microservices"],
     link: null, // Add project link if available
     category: "Backend Architecture",
@@ -153,8 +153,8 @@ export const projects = [
   {
     id: 2,
     title: "Vultara Automotive Cybersecurity Platform",
-    description: "Built cybersecurity algorithms, dashboards, and third-party integrations for automotive cybersecurity platforms with real-time threat monitoring and vulnerability tracking.",
-    impact: "Improved system performance by up to 90% via optimization and refactoring",
+    description: "Led end-to-end development of cybersecurity algorithms, dashboards, and third-party integrations for automotive cybersecurity platforms with threat modeling, vulnerability tracking, and automotive security workflows.",
+    impact: "Improved system performance by up to 90% via optimization, refactoring, and efficient system design",
     tech: ["TypeScript", "React", "Node.js", "CI/CD", "Testing"],
     link: null,
     category: "Full-Stack",
@@ -216,6 +216,7 @@ export const skills = {
         { name: "NestJS", level: "advanced" },
         { name: "Express.js", level: "advanced" },
         { name: "Python", level: "advanced" },
+        { name: "Java", level: "intermediate" },
         { name: "Flask", level: "advanced" },
         { name: "PostgreSQL", level: "advanced" },
         { name: "MongoDB", level: "intermediate" },
@@ -281,8 +282,8 @@ export const footer = {
 // SEO Configuration
 export const seo = {
   title: "Mohamed Diaa - Full-Stack Software Engineer | React, Node.js, Python",
-  description: "Full-stack software engineer with ~3 years of experience specializing in microservices, high-performance systems, and seamless integrations. Skilled in JavaScript, TypeScript, Python, NestJS, Next.js, and React.",
-  keywords: "software engineer, full-stack developer, React, Node.js, NestJS, microservices, Mohamed Diaa, TypeScript, Python",
+  description: "Full-stack software engineer with ~3 years of experience specializing in microservices, high-performance systems, and retail integrations. Proven track record with up to 90% performance improvements. Skilled in JavaScript, TypeScript, Python, NestJS, Next.js, and React.",
+  keywords: "software engineer, full-stack developer, React, Node.js, NestJS, microservices, Mohamed Diaa, TypeScript, Python, retail ecosystems",
   ogImage: "/og-image.jpg", // Add this image to public folder
   url: "https://mohameddiaa.me"
 }
